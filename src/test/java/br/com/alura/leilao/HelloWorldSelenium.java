@@ -1,24 +1,32 @@
 package br.com.alura.leilao;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class HelloWorldSelenium {
 
+    static WebDriver webDriver;
+
     @Test
     public void hello() throws InterruptedException {
-//        System.setProperty("webdriver.chrome.driver", "D:/Projetos/curso-selenium-java/drivers/chrome/chromedriver.exe");
-//        WebDriver googleChrome = new ChromeDriver();
-//        googleChrome.navigate().to("localhost:8080/leiloes");
+//        System.setProperty("webdriver.chrome.driver", "drivers\\chrome\\chromedriver.exe");
+//        webDriver = new ChromeDriver();
 
-        System.setProperty("webdriver.opera.driver", "D:/Projetos/curso-selenium-java/drivers/opera/operadriver.exe");
-        WebDriver opera = new OperaDriver();
+        String operaBinary = "D:\\Programas Instalados\\Opera\\73.0.3856.345\\opera.exe";
+        WebDriverManager.operadriver().setup();
+        OperaOptions options = new OperaOptions();
+        options.setBinary(operaBinary);
+        webDriver = new OperaDriver(options);
 
+        webDriver.get("http://localhost:8080/leiloes");
         Thread.sleep(5000);
-//        googleChrome.quit();
-        opera.navigate().to("localhost:8080/leiloes");
-        opera.quit();
+        webDriver.quit();
     }
 }
