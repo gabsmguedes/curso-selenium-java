@@ -1,14 +1,10 @@
 package br.com.alura.leilao;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class HelloWorldSelenium {
 

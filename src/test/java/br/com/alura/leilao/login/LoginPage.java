@@ -1,8 +1,7 @@
 package br.com.alura.leilao.login;
 
+import br.com.alura.leilao.leiloes.LeiloesPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -33,8 +32,9 @@ public class LoginPage {
         webDriver.findElement(By.id("password")).sendKeys(password);
     }
 
-    public void logar() {
+    public LeiloesPage logar() {
         webDriver.findElement(By.id("login-form")).submit();
+        return new LeiloesPage(webDriver);
     }
 
     public boolean isUrlPaginaDeLogin() {
