@@ -1,10 +1,8 @@
 package br.com.alura.leilao.leiloes;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 
 public class LeiloesPage {
@@ -12,6 +10,7 @@ public class LeiloesPage {
     private static WebDriver webDriver;
     private static OperaOptions options;
     private static final String URL_CADASTRO_LEILAO = "http://localhost:8080/leiloes/new";
+    private static final String URL_LEILAO = "http://localhost:8080/leiloes";
 
     public LeiloesPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -33,5 +32,9 @@ public class LeiloesPage {
         WebElement colunaValorInicial = linhaDaTabela.findElement(By.cssSelector("td:nth-child(3)"));
 
         return colunaNome.getText().equals(nome) && colunaDataAbertura.getText().equals(data) && colunaValorInicial.getText().equals(valor);
+    }
+
+    public boolean isPaginaAtual() {
+        return this.webDriver.getCurrentUrl().equals(URL_LEILAO);
     }
 }

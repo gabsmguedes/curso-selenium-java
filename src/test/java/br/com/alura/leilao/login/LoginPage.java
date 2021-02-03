@@ -15,7 +15,7 @@ public class LoginPage {
     private static final String URL_LOGIN = "http://localhost:8080/login";
 
     public LoginPage() {
-        String operaBinary = "D:\\Programas Instalados\\Opera\\73.0.3856.345\\opera.exe";
+        String operaBinary = "D:\\Programas Instalados\\Opera\\74.0.3911.75\\opera.exe";
         WebDriverManager.operadriver().setup();
         options = new OperaOptions();
         options.setBinary(operaBinary);
