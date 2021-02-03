@@ -16,7 +16,7 @@ public class LoginTest {
 
     @AfterEach
     public void afterEach() {
-        paginaDeLogin.fecharBrowser();
+        this.paginaDeLogin.fecharBrowser();
     }
 
     @Test
